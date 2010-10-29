@@ -13,7 +13,7 @@
 
   <include file="patches.zcml" />
   <include file="exportimport.zcml" />
-  <include file="pas.zcml" >
+  <include file="pas.zcml" />
 
   <genericsetup:registerProfile
       name="default"
