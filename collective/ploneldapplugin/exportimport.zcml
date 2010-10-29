@@ -1,0 +1,27 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="collective.ploneldapplugin">
+
+  <!-- Only install GenericSetup handlers if GenericSetup is installed -->
+  <configure
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    zcml:condition="installed Products.LDAPMultiPlugins">
+
+    <adapter factory=".exportimport.PloneLDAPSettingsXMLAdapter" />
+
+    <genericsetup:importStep
+        name="ploneldap"
+        title="Plone LDAP Settings"
+        description="Import Plone LDAP settings"
+        handler=".exportimport.importPloneLDAPSettings"/>
+
+    <genericsetup:exportStep
+        name="ploneldap"
+        title="Plone LDAP Settings"
+        description="Export Plone LDAP settings"
+        handler=".exportimport.exportPloneLDAPSettings"/>
+
+  </configure>
+
+</configure>

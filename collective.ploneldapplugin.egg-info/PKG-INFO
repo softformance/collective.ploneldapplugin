@@ -1,0 +1,25 @@
+Metadata-Version: 1.0
+Name: collective.ploneldapplugin
+Version: 1.0
+Summary: Better Plone LDAP PAS plugin with proper data types conversion
+Home-page: http://github.com/vipod/collective.ploneldapplugin
+Author: Vitaliy Podoba
+Author-email: vitaliypodoba@gmail.com
+License: GPL
+Description: Introduction
+        ============
+        
+        Better Plone LDAP PAS plugin with proper data types conversion.
+        
+        Changelog
+        =========
+        
+        1.0dev (unreleased)
+        -------------------
+        
+        - Initial release
+        
+Keywords: plone ldap
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Programming Language :: Python

@@ -25,6 +25,8 @@ setup(name='collective.ploneldapplugin',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'plone.app.ldap==1.2.1',
+          'collective.monkeypatcher',
           # -*- Extra requirements: -*-
       ],
       entry_points="""

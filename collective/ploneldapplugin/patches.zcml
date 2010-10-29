@@ -1,0 +1,32 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:monkey="http://namespaces.plone.org/monkey"
+    i18n_domain="collective.ploneldapplugin">
+
+    <include package="collective.monkeypatcher" file="meta.zcml" />
+
+    <monkey:patch
+        description="Remove 'unset' string from empty attributes on user adding."
+        class="Products.PloneLDAP.mixins.useradder.UserAdderMixin"
+        original="doAddUser"
+        replacement=".patches.doAddUser"
+        docstringWarning="true"
+        />
+
+    <monkey:patch
+        description="Return True from this function call to avoid Group duplicates in different Group Management PAS plugins."
+        class="Products.PloneLDAP.mixins.groupmgmt.GroupManagementMixin"
+        original="addGroup"
+        replacement=".patches.addGroup"
+        docstringWarning="true"
+        />
+
+    <monkey:patch
+        description="Pass default parameter to plugins getProperty method"
+        class="Products.PlonePAS.tools.memberdata.MemberData"
+        original="getProperty"
+        replacement=".patches.getProperty"
+        docstringWarning="true"
+        />
+
+</configure>

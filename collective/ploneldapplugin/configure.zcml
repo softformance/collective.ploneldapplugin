@@ -1,19 +1,28 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
     xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="collective.ploneldapplugin">
 
+  <!-- Include zcml files of all required packages -->
+  <includeDependencies package="." />
+
   <five:registerPackage package="." initialize=".initialize" />
+
+  <include file="patches.zcml" />
+  <include file="exportimport.zcml" />
+  <include file="pas.zcml" >
 
   <genericsetup:registerProfile
       name="default"
       title="collective.ploneldapplugin"
       directory="profiles/default"
-      description="Installs the collective.ploneldapplugin package"
+      description="Adds ldap user attributes"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+
   <!-- -*- extra stuff goes here -*- -->
-  
+
 </configure>

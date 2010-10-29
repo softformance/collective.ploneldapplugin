@@ -1,0 +1,46 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="collective.ploneldapplugin">
+
+  <five:implements
+      class=".ldapplugin.EnhancedPloneLDAPMultiPlugin"
+      interface="plone.app.ldap.ploneldap.interfaces.IManagedLDAPPlugin"
+      />
+
+  <!-- Register LDAP Attribute converters -->
+  <!-- By default make sure every value goes into LDAP as a string -->
+  <adapter factory=".converters.DefaultConverter" />
+  
+  <!-- DateTime Converter for Generalized Time syntax -->
+  <adapter
+      factory=".converters.DateTimeConverter"
+      name="1.3.6.1.4.1.1466.115.121.1.24"
+      />
+
+  <!-- Directory String Converter -->
+  <adapter
+      factory=".converters.StringConverter"
+      name="1.3.6.1.4.1.1466.115.121.1.15"
+      />
+
+  <!-- Boolean Converter -->
+  <adapter
+      factory=".converters.BooleanConverter"
+      name="1.3.6.1.4.1.1466.115.121.1.7"
+      />
+
+  <!-- Integer Converter -->
+  <adapter
+      factory=".converters.IntegerConverter"
+      name="1.3.6.1.4.1.1466.115.121.1.27"
+      />
+
+  <!-- Numeric String Converter -->
+  <adapter
+      factory=".converters.NumericConverter"
+      name="1.3.6.1.4.1.1466.115.121.1.36"
+      />
+
+</configure>
